@@ -82,7 +82,7 @@ SCMC = function(N=1000, M=10, L=25, nuseq_T= 1e-3, lower=c(-1,-1), upper=c(1,1),
     newsample = newsample[index,] 
     newlpdent = newlpdent[index]
     newWt = rep(1/N, N)
-    q = apply(newsample, 2, sd) * qt
+    q = apply(newsample, 2, sd) / (t^qt)
     a = abind(a, rep(0, D), along = 1)
     for(j in 1:M) {
       for (i in 1:N) {
